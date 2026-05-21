@@ -16,14 +16,14 @@ export const ContactSchema = new Schema({
     }, 
     email: {
         type: String, 
-        required: true
+        // required: true
     }, 
     company: {
         type: String, 
     }, 
     phone: {
         type: Number, 
-        require: true
+        // require: true
     }, 
     created_date: {
         type: Date, 
