@@ -12,12 +12,13 @@ export const addNewContact = async (req, res) => {
     } catch (err) {
         res.send(err)
     }
-   //let newContact = new Contact(req.body) //use the body to create a new contact in the database
-    //doesn,t work any longer
-    // newContact.save(function (err, contact){
-    //     if (err) {
-    //         res.send(err);
-    //     } 
-    //     res.json(contact) 
-    // }); 
-}
+}; 
+
+export const getContacts = async (req, res) => {
+    try{
+        const contact = await Contact.find({})
+        res.json(contact)
+    } catch(err){
+        res.send(err)
+    }
+}; 
