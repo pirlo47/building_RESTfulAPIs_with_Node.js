@@ -49,3 +49,15 @@ export const updateContact = async (req, res) => {
         res.send(err); 
     }
 }; 
+
+//creating the delete function 
+export const deleteContact = async (req, res) => {
+    try {
+        const contact = await Contact.findByIdAndDelete(
+            { _id:req.params.contactId }
+        );
+        res.json({message: "Contact deleted successfully"}); 
+    } catch (err){
+        res.send(err)
+    }
+}
