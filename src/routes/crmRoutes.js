@@ -2,12 +2,7 @@ import { addNewContact, deleteContact, getContacts, getContactWithID, updateCont
 import { login, loginRequired, register } from "../controllers/userControllers";
 const routes = (app) => {
     app.route('/contact')
-    .get((req, res, next) => {
-        //middleware 
-        console.log(`Request from: ${req.originalUrl}`);
-        console.log(`Resquest type: ${req.method}`);
-        next();
-    }, getContacts)
+    .get(loginRequired, getContacts)
     //parse controller functioin into the post method
     .post(loginRequired, addNewContact)
 
