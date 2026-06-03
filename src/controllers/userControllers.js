@@ -19,7 +19,7 @@ export const loginRequired = (req, res, next) => {
 export const register = async (req, res) => {
     const newUser = new User(req.body);
     //encrypt with bcrypt
-    newUser.hashPassword = bcrypt.hashSync(req.body.hashPassword, 10);
+    newUser.hashPassword = bcrypt.hashSync(req.body.password, 10);
     try {
         const user = await newUser.save();
         
